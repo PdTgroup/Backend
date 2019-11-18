@@ -1,8 +1,14 @@
 package com.electricity.entity;
 
-public class Citys {
-	private Integer  cid;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+
+public class Citys implements Serializable{
+	private  Integer  cid;
 	private String cName;
+	private transient Set<Datas> setdaDatas=new HashSet<Datas>();
 	public Integer getCid() {
 		return cid;
 	}
@@ -12,21 +18,22 @@ public class Citys {
 	public String getcName() {
 		return cName;
 	}
+	public void setcName(String cName) {
+		this.cName = cName;
+	}
+	public Set<Datas> getSetdaDatas() {
+		return setdaDatas;
+	}
+	public void setSetdaDatas(Set<Datas> setdaDatas) {
+		this.setdaDatas = setdaDatas;
+	}
 	@Override
 	public String toString() {
-		return "Citys [cid=" + cid + ", cName=" + cName + "]";
+		return "Citys [cid=" + cid + ", cName=" + cName + ", setdaDatas=" + setdaDatas + "]";
 	}
 	public Citys() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-	public Citys(Integer cid, String cName) {
-		super();
-		this.cid = cid;
-		this.cName = cName;
-	}
-	public void setcName(String cName) {
-		this.cName = cName;
 	}
 	
 

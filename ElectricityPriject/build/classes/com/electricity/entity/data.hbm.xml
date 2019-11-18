@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.electricity.entity.Datas" table="data_table">
+		<id name="Did" column="Did">
+			<generator class="native"></generator>
+		</id>
+		<property name="datas" column="datas"></property>
+		<many-to-one name="city" class="com.electricity.entity.Citys" column="cityid" lazy="false"></many-to-one>
+		<many-to-one name="time" class="com.electricity.entity.Times" column="timeid" lazy="false"></many-to-one>
+		<many-to-one name="index" class="com.electricity.entity.Indexs" column="indexid" lazy="false"></many-to-one>
+		
+	</class>
+</hibernate-mapping>

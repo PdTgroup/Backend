@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.electricity.entity.Citys" table="city_table" >
+		<id name="cid" column="cid">
+			<generator class="native"></generator>
+		</id>
+		<property name="cName" column="cName"></property>
+		<set name="setdaDatas"  inverse="true" cascade="save-update,delete">
+			<key column="cityid"></key>
+			<one-to-many class="com.electricity.entity.Datas" />
+		</set>
+	</class>
+	
+</hibernate-mapping>

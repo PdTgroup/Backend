@@ -1,12 +1,11 @@
 package com.electricity.service;
 
-import com.alibaba.fastjson.JSONObject;
 import com.electricity.dao.DataDealDao;
-import com.electricity.dao.DataDealDaoIml;
+import com.electricity.dao.DataDealImpl;
 
 public class Jsonservice {
 	
-	private DataDealDao dao=new DataDealDaoIml();
+	private DataDealDao dao=new DataDealImpl();
 	//获取Json柱状图(一个季度 一个指标 所有城市的值)
 	public String getBarChart(int timeid,int indexid){
 		return dao.JsongetAllCityIndexTime(timeid, indexid);
@@ -43,5 +42,5 @@ public class Jsonservice {
 	public String getJsonAllModual(){
 		return dao.getJsonAllModules();
 	}
-    
+     
 }

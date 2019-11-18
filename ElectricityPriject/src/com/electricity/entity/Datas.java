@@ -1,63 +1,22 @@
 package com.electricity.entity;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import java.io.Serializable;
 
-public class Datas {
-public Datas() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+public class Datas implements Serializable{
 
-@JsonIgnore
-private Integer Did;
+
+private transient Integer Did;
 private Float datas;
-@JsonIgnore
-private Integer cityid;
-@JsonIgnore
-private Integer timeid;
-@JsonIgnore
-private Integer indexid;
-@JsonIgnore
 private Citys city;
-@JsonIgnore
 private Times time;
 private Indexs index;
-private String cityName;
-private String Time;
-private String indexName;
-public String getIndexName() {
-	return indexName;
+@Override
+public String toString() {
+	return "Datas [Did=" + Did + ", datas=" + datas + ", city=" + city + ", time=" + time + ", index=" + index + "]";
 }
-public void setIndexName(String indexName) {
-	this.indexName = indexName;
-}
-public void setTime(String time) {
-	Time = time;
-}
-public String getCityName() {
-	return cityName;
-}
-public void setCityName(String cityName) {
-	this.cityName = cityName;
-}
-public Citys getCity() {
-	return city;
-}
-public void setCity(Citys city) {
-	this.city = city;
-}
-public Times getTime() {
-	return time;
-}
-public void setTime(Times time) {
-	this.time = time;
-}
-
-public Indexs getIndex() {
-	return index;
-}
-public void setIndex(Indexs index) {
-	this.index = index;
+public Datas() {
+	super();
+	// TODO Auto-generated constructor stub
 }
 public Integer getDid() {
 	return Did;
@@ -71,38 +30,28 @@ public Float getDatas() {
 public void setDatas(Float datas) {
 	this.datas = datas;
 }
-public Integer getCityid() {
-	return cityid;
+public Citys getCity() {
+	return city;
 }
-public void setCityid(Integer cityid) {
-	this.cityid = cityid;
+public void setCity(Citys city) {
+	this.city = city;
 }
-public Integer getTimeid() {
-	return timeid;
+public Times getTime() {
+	return time;
 }
-public void setTimeid(Integer timeid) {
-	this.timeid = timeid;
+public void setTime(Times time) {
+	this.time = time;
 }
-public Integer getIndexid() {
-	return indexid;
+public Indexs getIndex() {
+	return index;
 }
-public void setIndexid(Integer indexid) {
-	this.indexid = indexid;
+public void setIndex(Indexs index) {
+	this.index = index;
 }
 
-@Override
-public String toString() {
-	return "Datas [Did=" + Did + ", datas=" + datas + ", cityid=" + cityid + ", timeid=" + timeid + ", indexid="
-			+ indexid + ", city=" + city + ", time=" + time + ", index=" + index + "]";
-}
-public Datas(Integer did, Float datas, Integer cityid, Integer timeid, Integer indexid) {
-	Did = did;
-	this.datas = datas;
-	this.cityid = cityid;
-	this.timeid = timeid;
-	this.indexid = indexid;
-	
-}
+
+
+
 
 
 }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.electricity.entity.Indexs" table="zb_table">
+		<id name="Iid" column="Iid">
+			<generator class="native"></generator>
+		</id>
+		<property name="indexName" column="indexName"></property>
+		<property name="department" column="department"></property>
+		<property name="circle" column="circle"></property>
+		<property name="unit" column="unit"></property>
+		<property name="Qweight" column="Qweight"></property>
+		<property name="allscore" column="allscore"></property>
+		<many-to-one name="module" class="com.electricity.entity.Module" column="moduleid" lazy="false"></many-to-one>
+		<set name="setdaDatas"  inverse="true" cascade="save-update,delete">
+			<key column="indexid"></key>
+			<one-to-many class="com.electricity.entity.Datas"/>
+		</set>
+	</class>
+</hibernate-mapping>

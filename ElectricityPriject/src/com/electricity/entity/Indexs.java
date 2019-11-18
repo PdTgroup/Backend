@@ -1,57 +1,21 @@
 package com.electricity.entity;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-public class Indexs {
-	@JsonIgnore
-	private Integer Iid;
+
+public class Indexs implements Serializable {
+	private  Integer Iid;
 	private String  indexName;
-	@JsonIgnore
 	private String 	department;
-	@JsonIgnore
 	private String 	circle;
 	private String	unit;
-	@JsonIgnore
 	private Float	Qweight;
-	@JsonIgnore
-	private Module module;
-	@JsonIgnore
-	private float aLlscore;
-
-	
-	
-	
-	public float getaLlscore() {
-		return aLlscore;
-	}
-	public void setaLlscore(float aLlscore) {
-		this.aLlscore = aLlscore;
-	}
-	public Module getModule() {
-		return module;
-	}
-	public void setModule(Module module) {
-		this.module = module;
-	}
+	private Float allscore;
 	public Indexs() {
 		super();
-	}
-	
-	@Override
-	public String toString() {
-		return "Indexs [Iid=" + Iid + ", indexName=" + indexName + ", department=" + department + ", circle=" + circle
-				+ ", unit=" + unit + ", Qweight=" + Qweight + ", module=" + module + "]";
-	}
-	public Indexs(Integer iid, String indexName, String department, String circle, String unit, Float qweight,
-			Module module) {
-		super();
-		Iid = iid;
-		this.indexName = indexName;
-		this.department = department;
-		this.circle = circle;
-		this.unit = unit;
-		Qweight = qweight;
-		this.module = module;
+		// TODO Auto-generated constructor stub
 	}
 	public Integer getIid() {
 		return Iid;
@@ -89,4 +53,25 @@ public class Indexs {
 	public void setQweight(Float qweight) {
 		Qweight = qweight;
 	}
+	public Float getAllscore() {
+		return allscore;
+	}
+	public void setAllscore(Float allscore) {
+		this.allscore = allscore;
+	}
+	public Module getModule() {
+		return module;
+	}
+	public void setModule(Module module) {
+		this.module = module;
+	}
+	public Set<Datas> getSetdaDatas() {
+		return setdaDatas;
+	}
+	public void setSetdaDatas(Set<Datas> setdaDatas) {
+		this.setdaDatas = setdaDatas;
+	}
+	private transient Module module;
+	private transient Set<Datas> setdaDatas=new HashSet<Datas>();
+	
 }

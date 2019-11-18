@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.electricity.entity.Module" table="module_table">
+		<id name="id" column="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="moduleName" column="moduleName"></property>
+		<property name="allscore"  column="allscore"></property>
+		<property name="weight" column="weight"></property>
+		<set name="setIndexs"  inverse="true" cascade="save-update,delete">
+			<key column="moduleid"></key>
+			<one-to-many class="com.electricity.entity.Indexs"/>
+		</set>
+	</class>
+</hibernate-mapping>

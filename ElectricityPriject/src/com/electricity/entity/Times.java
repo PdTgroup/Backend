@@ -1,20 +1,19 @@
 package com.electricity.entity;
 
-public class Times {
-private Integer Tid;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+public class Times implements Serializable{
+private  Integer Tid;
 private String time;
-@Override
-public String toString() {
-	return "Times [Tid=" + Tid + ", time=" + time + "]";
-}
+private transient Set<Datas> setdaDatas=new HashSet<Datas>();
 public Times() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Times(Integer tid, String time) {
-	super();
-	Tid = tid;
-	this.time = time;
+@Override
+public String toString() {
+	return "Times [Tid=" + Tid + ", time=" + time + ", setdaDatas=" + setdaDatas + "]";
 }
 public Integer getTid() {
 	return Tid;
@@ -28,5 +27,12 @@ public String getTime() {
 public void setTime(String time) {
 	this.time = time;
 }
+public Set<Datas> getSetdaDatas() {
+	return setdaDatas;
+}
+public void setSetdaDatas(Set<Datas> setdaDatas) {
+	this.setdaDatas = setdaDatas;
+}
+
 
 }

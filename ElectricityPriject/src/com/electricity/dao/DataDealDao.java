@@ -46,16 +46,16 @@ public interface DataDealDao {
 		//计算各个指标在模块中的值和模块占总模块的值
 		public float getValue(float datas,float Allscore,float weight);
 		
-		//Json 模块中的指标
+//****		//Json 模块中的指标       设指标的满分值为100
 		public String getJsonIndexFromModule(int moduleid,int timeid);
 		 
-		//算出每个模块下小指标的总和
+//*****		//算出每个模块下小指标的总和    此时每个指标值自己定义 
 		public float getIndexSumForOneModel(int moduleid,int timeid);
 		
 		//四大模块基本数据
 		public ArrayList<Module> getAllModules();
 		
-		//JSon四个模块的数据
+//*****  //JSon四个模块的数据  此时模块中的满分值先自己定义
 	   public String getJsonAllModuleVAlue(int timeid);
         //JSon获取全部城市的值
 	   public String getJSonAllCity();
