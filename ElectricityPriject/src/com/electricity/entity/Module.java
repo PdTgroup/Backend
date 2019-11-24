@@ -9,7 +9,7 @@ public class Module implements Serializable{
 	private  Integer id;
 	private String moduleName;
 	private transient float sum;//一个模块中的指标值的中和
-	private transient float value;
+	private float value;
 	private Float allscore;//满分
 	private Float weight;
 	private transient Set<Indexs> setIndexs=new HashSet<Indexs>();

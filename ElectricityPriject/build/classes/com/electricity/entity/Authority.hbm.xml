@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 该配置文件的目的是映射实体类对应的数据库表 -->
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.electricity.entity.Authority" table="authority">
+		<id name="authorityId" column="authorityId">
+			<!-- 设置id自增 -->
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="authorityName" column="authorityName"></property>
+		<property name="menuid" column="menuid"></property>
+	</class>
+</hibernate-mapping>

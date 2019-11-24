@@ -128,8 +128,7 @@ public class DataDealImpl   implements DataDealDao {
 	}
 
 	@Override
-	public String JsongetAllCityIndexTime(int timeid, int indexid) {
-		String result=null;
+	public JSONObject JsongetAllCityIndexTime(int timeid, int indexid) {
 		JSONObject jsonObject=new JSONObject();
 		DataDealDao dao=new DataDealImpl();
 		Indexs index = dao.getIndexsById(indexid);
@@ -148,8 +147,7 @@ public class DataDealImpl   implements DataDealDao {
 			Zhulist.add(z);
 		}
 		jsonObject.put("cityScore", Zhulist);
-		result=JSON.toJSONString(jsonObject);
-		return result;
+		return jsonObject;
 	}
 
 	@Override
@@ -189,13 +187,12 @@ public class DataDealImpl   implements DataDealDao {
 	}
 
 	@Override
-	public String JsonAllTimeAllCityIndex(int indexid) {
+	public JSONObject JsonAllTimeAllCityIndex(int indexid) {
 		List<Object>  list=new ArrayList<Object>();
 		ArrayList<String> timeslist=new ArrayList<String>();
 		List<Datas> list2=new ArrayList<Datas>();
 		JSONObject jsonObject=new JSONObject();
 		DataDealDao dao=new DataDealImpl();
-		String result=null;
 		Indexs index = dao.getIndexsById(indexid);
 		jsonObject.put("indexInfo",index);
 		//获取一个指标下的所有季度值
@@ -226,8 +223,7 @@ public class DataDealImpl   implements DataDealDao {
 			    list.add(zhexian);
 		}
 		jsonObject.put("cityScore", list);
-		result=JSON.toJSONString(jsonObject);
-		return result;
+		return jsonObject;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -275,9 +271,8 @@ public class DataDealImpl   implements DataDealDao {
 	}
 
 	@Override
-	public String getJsonIndexFromModule(int moduleid, int timeid) {
+	public JSONObject getJsonIndexFromModule(int moduleid, int timeid) {
 		DataDealDao dao=new DataDealImpl();
-		String result=null;
 		JSONObject jsonObject=new JSONObject();
 		ArrayList<Datas> listdata=dao.getIndexInModuleOneTime(timeid, moduleid);
 		Times times = dao.getTimesById(timeid);
@@ -304,8 +299,7 @@ public class DataDealImpl   implements DataDealDao {
 			}
 		}
 		jsonObject.put("IndexValue",list);
-	    result=	JSON.toJSONString(jsonObject);
-		return result;
+		return jsonObject;
 	}
 
 	@Override
@@ -347,12 +341,11 @@ public class DataDealImpl   implements DataDealDao {
 	}
 
 	@Override
-	public String getJsonAllModuleVAlue(int timeid) {
-		String result=null;
+	public JSONObject getJsonAllModuleVAlue(int timeid) {
 		DataDealDao dao=new DataDealImpl();
 		JSONObject jsonObject=new JSONObject();
 		Times times = dao.getTimesById(timeid);
-		jsonObject.put("times",times);
+		jsonObject.put("indexCycle",times);
 		ArrayList<Module> listModules = dao.getAllModules();
 		for (Module module : listModules) {
 			int moduleid=module.getId();
@@ -366,23 +359,22 @@ public class DataDealImpl   implements DataDealDao {
 			float value = dao.getValue(sum, Allscore, weight);
 			module.setValue(value);
 		}
-		jsonObject.put("listModules", listModules);
-		result=JSON.toJSONString(jsonObject);
-		return result;
+		jsonObject.put("ModuleValue", listModules);
+		return jsonObject;
 	}
 
 	@Override
-	public String getJSonAllCity() {
+	public JSONObject getJSonAllCity() {
 		DataDealDao dao=new DataDealImpl();
 		ArrayList<Citys> allcity = dao.getAllCity();
 		if(allcity!=null){
 			JSONObject jsonObject=new JSONObject();
 			jsonObject.put("Allcity", allcity);
-			String result = JSON.toJSONString(jsonObject);
-			return result;
+			return jsonObject;
 		}
 		return null;
 	}
+	
 
 	@Override
 	public ArrayList<Citys> getAllCity() {
@@ -425,14 +417,13 @@ public class DataDealImpl   implements DataDealDao {
 	}
 
 	@Override
-	public String getJSonAllTime() {
+	public JSONObject getJSonAllTime() {
 		DataDealDao dao=new DataDealImpl();
 		ArrayList<Times> allTimes = dao.getAllTimes();
 		if(allTimes!=null){
 			JSONObject jsonObject=new JSONObject();
 			jsonObject.put("Alltime", allTimes);
-			String result = JSON.toJSONString(jsonObject);
-			return result;
+			return jsonObject;
 		}
 		return null;
 	}
@@ -456,27 +447,25 @@ public class DataDealImpl   implements DataDealDao {
 	}
 
 	@Override
-	public String getJSonAllIndexs() {
+	public JSONObject getJSonAllIndexs() {
 		DataDealDao dao=new DataDealImpl();
 		ArrayList<Indexs> allindexs = dao.getAllIndexs();
 		if(allindexs!=null){
 			JSONObject jsonObject=new JSONObject();
 			jsonObject.put("Allindexs", allindexs);
-			String result = JSON.toJSONString(jsonObject);
-			return result;
+			return jsonObject;
 		}
 		return null;
 	}
 
 	@Override
-	public String getJsonAllModules() {
+	public JSONObject getJsonAllModules() {
 		DataDealDao dao=new DataDealImpl();
 		ArrayList<Module> allmodule = dao.getAllModules();
 		if(allmodule!=null){
 			JSONObject jsonObject=new JSONObject();
 			jsonObject.put("Allmodule", allmodule);
-			String result = JSON.toJSONString(jsonObject);
-			return result;
+			return jsonObject;
 		}
 		return null;
 	}

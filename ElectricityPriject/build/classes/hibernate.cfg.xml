@@ -28,7 +28,10 @@
 		<mapping resource="com/electricity/entity/index.hbm.xml"/>
 		<mapping resource="com/electricity/entity/time.hbm.xml"/>
 		<mapping resource="com/electricity/entity/module.hbm.xml"/>
-      
-        
+        <mapping resource="com/electricity/entity/Authority.hbm.xml"/>
+        <mapping resource="com/electricity/entity/Role.hbm.xml"/>
+        <mapping resource="com/electricity/entity/SuperAdmin.hbm.xml"/>
+        <mapping resource="com/electricity/entity/User.hbm.xml"/>
+        <mapping resource="com/electricity/entity/menu.hbm.xml"/>
 </session-factory>
 </hibernate-configuration>

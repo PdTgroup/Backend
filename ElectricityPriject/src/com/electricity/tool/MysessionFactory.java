@@ -38,5 +38,5 @@ public class MysessionFactory {
 	public static void main(String[] args) {
 		System.out.println(sessionFactory.getCurrentSession());
 	}
-
+	
 }

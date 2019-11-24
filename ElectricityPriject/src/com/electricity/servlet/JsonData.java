@@ -10,6 +10,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import com.alibaba.fastjson.JSONObject;
+import com.electricity.entity.Citys;
+import com.electricity.entity.ResultBean;
 import com.electricity.service.Jsonservice;
 @Path("JsonData")
 public class JsonData  {
@@ -18,31 +20,34 @@ public class JsonData  {
 	@GET
 	@Path("/allcitys")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String allCitys(){
-		String allcity = jsonservice.getJSonAllCity();
-		return allcity;
+	public JSONObject allCitys(){
+		 JSONObject jSonAllCity = jsonservice.getJSonAllCity();
+		 
+		return jSonAllCity;
 	}
+
+	
 	
 	@GET
 	@Path("/allTimes")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String allTimes(){
-		String alltimes = jsonservice.getJsonAllTimes();
-		return alltimes;
+	public JSONObject allTimes(){
+	 JSONObject jsonAllTimes = jsonservice.getJsonAllTimes();
+		return jsonAllTimes;
 	}
 	
 	@GET
 	@Path("/allIndexs")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String Indexs(){
-		String allindexs = jsonservice.getJSonAllIndexs();
-		return allindexs;
+	public JSONObject Indexs(){
+		JSONObject jSonAllIndexs = jsonservice.getJSonAllIndexs();
+		return jSonAllIndexs;
 	}
 	
 	@POST
 	@Path("/barChart")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String barChart(@Context HttpServletRequest request,@Context HttpServletResponse response) throws Exception{
+	public JSONObject barChart(@Context HttpServletRequest request,@Context HttpServletResponse response) throws Exception{
 		response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods","POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
@@ -59,14 +64,14 @@ public class JsonData  {
         JSONObject jsonObject = JSONObject.parseObject(strJson);
         int timeid = jsonObject.getInteger("timeid");
         int indexid=jsonObject.getInteger("indexid");
-        String barChart = jsonservice.getBarChart(timeid, indexid);
+        JSONObject barChart = jsonservice.getBarChart(timeid, indexid);
         return barChart;
 	}
 	
 	@POST
 	@Path("/LineChart")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String LineChart(@Context HttpServletRequest request,@Context HttpServletResponse response) throws Exception{
+	public JSONObject LineChart(@Context HttpServletRequest request,@Context HttpServletResponse response) throws Exception{
 		response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods","POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
@@ -80,7 +85,7 @@ public class JsonData  {
             str.append(c);
         }
         String strJson = java.net.URLDecoder.decode(str.toString(),"utf-8");
-        String LineChart =null;
+        JSONObject LineChart =null;
         if(strJson!=null){
         	 JSONObject jsonObject = JSONObject.parseObject(strJson);
              int indexid=jsonObject.getInteger("indexid");
@@ -92,7 +97,7 @@ public class JsonData  {
 	@POST
 	@Path("/FourModual")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String FourModual(@Context HttpServletRequest request,@Context HttpServletResponse response) throws Exception{
+	public JSONObject FourModual(@Context HttpServletRequest request,@Context HttpServletResponse response) throws Exception{
 		response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods","POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
@@ -106,7 +111,7 @@ public class JsonData  {
             str.append(c);
         }
         String strJson = java.net.URLDecoder.decode(str.toString(),"utf-8");
-        String FourModual=null;
+        JSONObject FourModual=null;
         if(strJson!=null){
         	JSONObject jsonObject = JSONObject.parseObject(strJson);
             int timeid=jsonObject.getInteger("timeid");
@@ -118,7 +123,7 @@ public class JsonData  {
 	@POST
 	@Path("/OneModual")
 	@Produces(MediaType.APPLICATION_JSON)
-	public String OneModual(@Context HttpServletRequest request,@Context HttpServletResponse response) throws Exception{
+	public JSONObject OneModual(@Context HttpServletRequest request,@Context HttpServletResponse response) throws Exception{
 		response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Allow-Methods","POST, GET, OPTIONS, DELETE");
         response.setHeader("Access-Control-Max-Age", "3600");
@@ -132,7 +137,7 @@ public class JsonData  {
             str.append(c);
         }
         String strJson = java.net.URLDecoder.decode(str.toString(),"utf-8");
-        String OneModual=null;
+        JSONObject OneModual=null;
         if(strJson!=null){
         	 JSONObject jsonObject = JSONObject.parseObject(strJson);
              int timeid=jsonObject.getInteger("timeid");
